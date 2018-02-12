@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<title></title>
+<!-- reference our style sheet -->
+<link rel="stylesheet" type="text/css" href="./css/mystyle.css" >
+	
+<script type="text/javascript" src="testing.js"></script>
+
+</head>
+<body>
+	
+	<div class="topnav">
+		<a href="/home-page.html" class="active">Car Recycling Inc.</a>
+		<a href="/home-page.html" class="item">Home</a>
+		<a href="/costs-tables.html" class="item">Costs and Rewards</a>
+		<a href="/FAQs.html" class="item">FAQs</a>
+		<div class="dropdown">
+			<button class="dropbtn">My account</button>
+			<div class="dropdown-content">
+				<a href="/login.html" class="item">Login</a>
+				<a href="/signin.html" class="item">Sign In</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<h3>Welcome!</h3>
+		<br><br>
+		<h4>Please give the licence plate of the vehicle you wish to search:</h4>
+		<form class="form">
+			<div class="field">
+				<label>Licence Plate</label>
+				<input type="text" id="licence_plate" />
+			
+			<button class="button" type="button" 
+			onclick="searchVehicle(licence_plate.value)">
+			Search</button><br>
+		</form>
+	</div>
+	
+	<br><br>
+	<div id="txtResponse"><p>message will appear here</p></div>
+	<br><br>
+	<div class="footer">
+		<div class="container">3A Car Recycling Inc.</div>
+	</div>
+	
+</body>
+</html>

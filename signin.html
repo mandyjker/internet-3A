@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<title></title>
+<!-- reference our style sheet -->
+<link rel="stylesheet" type="text/css" href="./css/mystyle.css" >
+	
+<script type="text/javascript" src="testing.js"></script>
+
+</head>
+<body>
+	
+	<div class="topnav">
+		<a href="/home-page.html" class="active">Car Recycling Inc.</a>
+		<a href="/home-page.html" class="item">Home</a>
+		<a href="/costs-tables.html" class="item">Costs and Rewards</a>
+		<a href="/FAQs.html" class="item">FAQs</a>
+		<div class="dropdown">
+			<button class="dropbtn">My account</button>
+			<div class="dropdown-content">
+				<a href="/login.html" class="item">Login</a>
+				<a href="/signin.html" class="item">Sign In</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<h3>Sign In for Customers</h3>
+
+		<form class="form">
+			<div class="field">
+				<label>AFM</label>
+				<input type="text" id="afm" />
+			</div>
+			<div class="field">
+				<label>First Name</label>
+				<input type="text" id="firstName" />
+			</div>
+			<div class="field">
+				<label>Last Name</label>
+				<input type="text" id="lastName" />
+			</div>
+			<div class="field">
+				<label>Username</label>
+				<input type="text" id="username" />
+			</div>
+			<div class="field">
+				<label>Password</label>
+				<input type="text" id="password" />
+			</div>
+			<button class="button" type="button" 
+			onclick="createAccount(username.value, password.value);">
+			Login</button><br>
+			</form>
+
+	</div>
+	<br><br>
+	<div id="txtResponse"><p>message will appear here</p></div>
+	<br><br>
+	<div class="footer">
+		<div class="container">3A Car Recycling Inc.</div>
+	</div>
+</body>
+</html>
