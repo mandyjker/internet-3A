@@ -17,9 +17,9 @@ function getCustomer(username, passwd) {
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			if ( this.responseText.startsWith("No") ){
-			document.getElementById("txtResponse").innerHTML = "Server responded with: "+this.responseText;
+				document.getElementById("txtResponse").innerHTML = this.responseText;
 			} else {
-				window.location.href = "/search-car.html";
+				window.location.href = "/account-home-page.html?username="+username;
 			}
 		}
 	};
@@ -33,8 +33,6 @@ function createAccount(username, passwd) {
 	var afm = document.getElementById("afm").value;
 	var firstname = document.getElementById("firstName").value;
 	var lastname = document.getElementById("lastName").value;
-	//var username = document.getElementById("username").value;
-	//var passwd = document.getElementById("password").value;
 	var newCustomer = new customer(afm, firstname, lastname, username, passwd);
 	var str_json = JSON.stringify(newCustomer);
 	if (window.XMLHttpRequest) {
@@ -57,6 +55,9 @@ function createAccount(username, passwd) {
 }
 
 function searchVehicle(licence_plate){
+	var header = document.getElementById("header").innerHTML;
+	var username = header.split(" ")[1];
+	
 	if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -73,13 +74,17 @@ function searchVehicle(licence_plate){
 								temp+="<tr><td>"+array[i].licence_plate+"</td><td>"+array[i].model+"</td><td>"+array[i].fuel_type+"</td><td>"+array[i].year+"</td><td>"+array[i].condition+"</td><td>"+array[i].reward+"</td><td>"+array[i].worker_id+"</td><td>"+array[i].customer_afm+"</td></tr>"; 
 							}
 							document.getElementById("txtResponse").innerHTML = temp +"</table>";
-							//document.getElementById("txtResponse").innerHTML = this.responseText;
+							if ( array[0].condition != null ) {
+								document.getElementById("certificateResponse").innerHTML = "<button class='button' type='button'>Print Certificate</button>";
+							} else {
+								document.getElementById("certificateResponse").innerHTML = "Unfortunately, the certifate has not been issued yet.";
+							}
 			} else {				
-				document.getElementById("txtResponse").innerHTML = "Server responded with: "+this.responseText;
+				document.getElementById("txtResponse").innerHTML = this.responseText;
 			}
 		}
 	};
-	xmlhttp.open("GET","conn_db.php?licence_plate="+licence_plate,true);
+	xmlhttp.open("GET","conn_db.php?licence_plate="+licence_plate+"&username="+username,true);
 	xmlhttp.send();
 	
 	document.getElementById("txtResponse").innerHTML = 'request is search for vehicle with: '+licence_plate;

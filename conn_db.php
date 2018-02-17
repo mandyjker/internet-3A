@@ -21,13 +21,14 @@
 			if (mysqli_num_rows($result) > 0) {
 				$response="Login successfull";	
 			} else {
-				$response="No user found with username=" .$username ." and password=" .$password;
+				$response="No such user found.";
 			}
 			echo $response;
-		} elseif ( isset($_REQUEST["licence_plate"]) ) {
+		} elseif ( isset($_REQUEST["licence_plate"], $_REQUEST["username"]) ) {
 			//search for vehicle 
 			$licence_plate = $_REQUEST["licence_plate"];
-			$sql = "SELECT * FROM car WHERE licence_plate='" .$licence_plate ."'";
+			$username = $_REQUEST["username"];
+			$sql = "SELECT * FROM customer cust JOIN car c on cust.afm=c.customer_afm WHERE cust.username='".$username."' AND c.licence_plate='".$licence_plate."'";
 			$result = mysqli_query($conn, $sql);
 			$car_array = array();
 			if (mysqli_num_rows($result) > 0) {
@@ -59,7 +60,6 @@
 			} else {
 				$message="Error while inserting customer: " .$customer->afm ."<br>";
 			}
-			$message = $sql;
 			$jsonresponse=json_encode($message);
 			echo $jsonresponse;
 		}

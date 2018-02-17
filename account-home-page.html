@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<title></title>
+<!-- reference our style sheet -->
+<link rel="stylesheet" type="text/css" href="./css/mystyle.css" >
+<link rel="icon" href="./pictures/favicon.ico" type="image/x-icon">	
+<script type="text/javascript" src="testing.js"></script>
+</head>
+<body>
+	
+	<div class="topnav">
+		<a href="/home-page.html" class="active">Car Recycling Inc.</a>
+		<a href="/home-page.html" class="item">Home</a>
+		<a href="/costs-tables.html" class="item">Costs and Rewards</a>
+		<a href="/FAQs.html" class="item">FAQs</a>
+		<div class="dropdown">
+			<button class="dropbtn">My account</button>
+			<div class="dropdown-content">
+				<a href="/home-page.html" class="item">Logout</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" id="container">
+		<div>
+			<h3 id="header"></h3>
+			<script type="text/javascript">
+				var url = new URL(window.location.href);
+				var username = url.searchParams.get("username");
+				document.getElementById("header").innerHTML = "Welcome back " +username;
+			</script>
+		</div>
+		<div id="content">
+			<h4>Now that you have logged in, 
+			you can schedule an appointment for a tow truck to pick up your vehicle, 
+			or if you have already dropped off your vehicle for recycling,
+			you can download its certificate.</h4>
+			<p>If you want to make an appointment, please contact one of the following stations:</p>
+			<table>
+				<tr>
+					<th>Station 1</th>
+					<th>Station 2</th>
+					<th>Station 3</th>
+					<th>Station 4</th>
+					<th>Station 5</th>
+				</tr>
+				<tr>
+					<th>Marousi</th>
+					<th>Metamorphosi</th>
+					<th>Kalyvia Thorikou</th>
+					<th>Spata</th>
+					<th>Agia Varvara</th>
+				</tr>
+				<tr>
+					<th>210-1234567</th>
+					<th>210-9876543</th>
+					<th>211-1237890</th>
+					<th>215-1112223</th>
+					<th>212-9988776</th>
+				</tr>
+			</table>
+			<br>
+			<div id="link"> </div>
+			<script>
+				var url = new URL(window.location.href);
+				var username = url.searchParams.get("username");
+				document.getElementById("link").innerHTML = "<p>Otherwise, if you want to search if your car has been registered, then click <a href='/search-car.html?username="+username+"'>here</a></p>";
+			</script>
+		</div>	
+	</div>
+	<br><br>
+	<div class="footer">
+		<div class="container">3A Car Recycling Inc.</div>
+	</div>
+</body>
+</html>

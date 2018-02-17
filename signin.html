@@ -5,7 +5,7 @@
 <title></title>
 <!-- reference our style sheet -->
 <link rel="stylesheet" type="text/css" href="./css/mystyle.css" >
-	
+<link rel="icon" href="./pictures/favicon.ico" type="image/x-icon">	
 <script type="text/javascript" src="testing.js"></script>
 
 </head>
@@ -25,7 +25,7 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container" id="container">
 		<h3>Sign In for Customers</h3>
 
 		<form class="form">
@@ -46,8 +46,8 @@
 				<input type="text" id="username" />
 			</div>
 			<div class="field">
-				<label>Password</label>
-				<input type="text" id="password" />
+				<label>Password</label> 
+				<input type="password" id="password"/>
 			</div>
 			<button class="button" type="button" 
 			onclick="createAccount(username.value, password.value);">
@@ -56,7 +56,7 @@
 
 	</div>
 	<br><br>
-	<div id="txtResponse"><p>message will appear here</p></div>
+	<div id="txtResponse"><p></p></div>
 	<br><br>
 	<div class="footer">
 		<div class="container">3A Car Recycling Inc.</div>

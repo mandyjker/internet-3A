@@ -5,7 +5,7 @@
 <title></title>
 <!-- reference our style sheet -->
 <link rel="stylesheet" type="text/css" href="./css/mystyle.css" >
-	
+<link rel="icon" href="./pictures/favicon.ico" type="image/x-icon">	
 <script type="text/javascript" src="testing.js"></script>
 
 </head>
@@ -19,21 +19,27 @@
 		<div class="dropdown">
 			<button class="dropbtn">My account</button>
 			<div class="dropdown-content">
-				<a href="/login.html" class="item">Login</a>
-				<a href="/signin.html" class="item">Sign In</a>
+				<a href="/home-page.html" class="item">Logout</a>
 			</div>
 		</div>
 	</div>
 	
-	<div class="container">
-		<h3>Welcome!</h3>
+	<div class="container" id="container">
+		<div>
+			<h3 id="header"></h3>
+			<script type="text/javascript">
+				var url = new URL(window.location.href);
+				var username = url.searchParams.get("username");
+				document.getElementById("header").innerHTML = "Welcome " +username;
+			</script>
+		</div>
 		<br><br>
 		<h4>Please give the licence plate of the vehicle you wish to search:</h4>
 		<form class="form">
 			<div class="field">
 				<label>Licence Plate</label>
-				<input type="text" id="licence_plate" />
-			
+				<input type="text" id="licence_plate"/>
+			</div>
 			<button class="button" type="button" 
 			onclick="searchVehicle(licence_plate.value)">
 			Search</button><br>
@@ -41,7 +47,8 @@
 	</div>
 	
 	<br><br>
-	<div id="txtResponse"><p>message will appear here</p></div>
+	<div id="txtResponse"><p></p></div>
+	<div id="certificateResponse"><p></p></div>
 	<br><br>
 	<div class="footer">
 		<div class="container">3A Car Recycling Inc.</div>
